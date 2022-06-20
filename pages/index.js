@@ -2,38 +2,41 @@ import Head from 'next/head'
 import Link from 'next/link';
 // import styles from '../styles/Home.module.css'
 import { useState, useEffect } from 'react'
+import Box from '@mui/material/Box';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import RestoreIcon from '@mui/icons-material/Restore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export default function Home({posts, date}) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    const timer = setInterval(() => setCount(c => c + 1), 1000)
-    return () => {
-      clearInterval(timer)
-    }
-  }, []);
+  const [value, setValue] = useState(0);
   return (
     <div>
       <Head>
-        <title>Mon super blog</title>
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="Promouvoir l'apiculture en Indre et Loire"
+        />
+        <title>Syndicat d'apiculture Tourangelle</title>
       </Head>
       <main>
-        <h1>
-          Count: {count}
-        </h1>
-        <h2>Il est {date}</h2>
-        <ul>
-          {posts.map(post => (
-          <li key={post.id}>
-            <Link href={`/blog/${post.id}`}>
-              <a>
-                <h3>
-                  {post.title}
-                </h3>
-              </a>
-            </Link>
-          </li>)
-          )}
-        </ul>
+      <Box sx={{ width: 500 }}>
+        <BottomNavigation
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+        >
+          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+          <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        </BottomNavigation>
+        </Box>
       </main>
     </div>
   )
