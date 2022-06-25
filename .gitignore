@@ -1,32 +1,32 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+nextapp/node_modules
+nextapp/.pnp
+nextapp/.pnp.js
 
 # testing
-/coverage
+nextapp/coverage
 
 # next.js
-/.next/
-/out/
+nextapp/.next/
+nextapp/out/
 
 # production
-/build
+nextapp/build
 
 # misc
-.DS_Store
-*.pem
+nextapp/.DS_Store
+nextapp/*.pem
 
 # debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+nextapp/npm-debug.log*
+nextapp/yarn-debug.log*
+nextapp/yarn-error.log*
+nextapp/.pnpm-debug.log*
 
 # local env files
-.env*.local
+nextapp/.env*.local
 
 # vercel
-.vercel
+nextapp/.vercel
