@@ -1,7 +1,7 @@
 #!/bin/bash
 user="barto"
 # ipAdress="octopieu.fr"
-ipAdress="82.65.249.94"
+ipAdress="192.168.0.30"
 # ipAdress="192.168.0.30"
 adressComputer="$user""@""$ipAdress"
 adressScript="$adressComputer"":/home/barto/www/nginx/"
