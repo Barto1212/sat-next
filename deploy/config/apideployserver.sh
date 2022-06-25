@@ -1,25 +1,15 @@
 #!/bin/bash
-localisationServeurBack=~/www/nginx/backend
-localisationServeurFront=~/www/nginx/reactapp
+localisationServeur="/var/www/loic-barthomeuf"
 
-# On efface les sources front précédentes :
-rm -R $localisationServeurFront"/sources"
-mkdir $localisationServeurFront"/sources"
-# On extrait tout dans le dossier backend :
-cd $localisationServeurBack"/sources"
-gunzip $localisationServeurBack"/build.tar.gz"
-tar -xf $localisationServeurBack"/build.tar"
-# On déplace le fichier de config pm2
-mv $localisationServeurBack"/sources/build/ecosystem.config.js" $localisationServeurBack"/ecosystem.config.js"
-# On déplace le front à sa place
-mv $localisationServeurBack"/sources/build/"* $localisationServeurFront"/sources"
-rm $localisationServeurBack"/build.tar"
+# On efface les sources front précédentes sauf node_modules et package-lock.json :
+cd $localisationServeur"/sources"
+for file in *; do
+   [[ "$file" != 'node_modules' ]] && [[ "$file" != 'package-lock.json' ]] && rm -r "$file"
+done
+cd ..
 
-# On copie les certificats :
-# On efface les anciens :
-rm -R $localisationServeurBack"/cert"
-rm -R $localisationServeurFront"/cert"
-# Ceux pour le back :
-cp -r $localisationServeurBack"/sources/cert" $localisationServeurBack"/"
-# Ceux pour le front :
-mv  $localisationServeurBack"/sources/cert" $localisationServeurFront"/cert"
+# On extrait tout dans le dossier sources :
+gunzip $localisationServeur"/sources.tar.gz"
+tar -xf $localisationServeur"/sources.tar"
+rm $localisationServeur"/sources.tar"
+
