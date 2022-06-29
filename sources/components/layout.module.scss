@@ -1,0 +1,47 @@
+// palette photo initiale sat : https://coolors.co/1a1114-304425-7e6243-f6cb4b-eef0ed
+
+$color-primary: #7E6243;
+$color-secondary: #F6CB4B;
+$color-warning: #304425;
+$color-background: #EEF0ED;
+$color-text: #1A1114;
+$base-font-size: 16px;
+
+  
+
+.nav {
+  background-color: $color-background;
+  margin: 0 auto;
+  display: block;
+  padding: 1em 0;  
+  text-align: center;
+  font-size: $base-font-size;
+  &__link {
+    list-style: none;
+    margin: 0 auto;
+    border-left: 2px solid $color-warning;
+    display: inline-block;
+    padding: 0 30px;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    font-family: arvo;
+    a {
+      color: $color-primary;
+      text-decoration: none;
+      &:hover {
+        color: $color-secondary;
+      }
+    }
+    &__sublist {
+      &--open {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      &--close {
+        display: none;
+      }
+    }
+  }
+}
