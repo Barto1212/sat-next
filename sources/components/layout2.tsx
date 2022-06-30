@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from './layout.module.scss'
+import styles from './layout2.module.scss'
 import Link from 'next/link'
 
 export const siteTitle = "Syndicat de l'apiculture tourangelle"
@@ -14,17 +14,26 @@ const itemsMenu = [
 ]
 
 const Menu = () => (
-  <nav role="navigation" className={styles.nav}>
-    <ul>
-      {itemsMenu.map(item =>(
-        <li key={item.name} className={styles.nav__link}>
-          <Link href={item.link}>
-            <a>{item.name}</a>
-          </Link>
-        </li>
-      ))}
-   </ul>
-  </nav> 
+  <>
+    <div className={styles.brand}>
+      <a href="#!">🍀 Clover Clothing</a>
+    </div>
+      <nav>
+        <div className={styles.navmobile}>
+          <a id="nav-toggle" href="#!"><span></span></a>
+        </div>
+        <ul className={styles.navlist}>
+          {itemsMenu.map(item =>(
+            <li key={item.name} >
+              <Link href={item.link}>
+                <a>{item.name}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+  </>
+
 )
 
 export default function Layout({

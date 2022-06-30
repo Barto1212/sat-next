@@ -16,5 +16,5 @@ rm $localisationServeur"/sources.tar"
 cd sources
 npm install
 npm run build
-
+pm2 restart npm
 
