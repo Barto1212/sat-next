@@ -16,7 +16,7 @@ adressSources=$adressComputer":"$localadressSources
 
 # copie de la source front
 cd ..
-tar --exclude="node_modules" --exclude="package-lock.json" --exclude=".next/cache" -cf sources.tar sources
+tar --exclude="node_modules" --exclude="package-lock.json" --exclude=".next" -cf sources.tar sources
 
 gzip sources.tar
 

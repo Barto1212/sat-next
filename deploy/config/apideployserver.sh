@@ -4,7 +4,7 @@ localisationServeur="/var/www/loic-barthomeuf"
 # On efface les sources front précédentes sauf node_modules et package-lock.json :
 cd $localisationServeur"/sources"
 for file in *; do
-   [[ "$file" != 'node_modules' ]] && [[ "$file" != 'package-lock.json' ]] && rm -r "$file"
+   [[ "$file" != 'node_modules' ]] && [[ "$file" != 'package-lock.json' ]] && [[ "$file" != '.next' ]] && rm -r "$file"
 done
 cd ..
 
@@ -12,4 +12,9 @@ cd ..
 gunzip $localisationServeur"/sources.tar.gz"
 tar -xf $localisationServeur"/sources.tar"
 rm $localisationServeur"/sources.tar"
+
+cd sources
+npm install
+npm run build
+
 
