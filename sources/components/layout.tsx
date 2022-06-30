@@ -14,16 +14,21 @@ const itemsMenu = [
 ]
 
 const Menu = () => (
-  <nav role="navigation" className={styles.nav}>
-    <ul>
-      {itemsMenu.map(item =>(
-        <li key={item.name} className={styles.nav__link}>
-          <Link href={item.link}>
-            <a>{item.name}</a>
-          </Link>
-        </li>
-      ))}
-   </ul>
+  <nav role="navigation" className={styles.nav} >
+    <div className="navMobile">
+      <a id="nav-toggle" href="#"><span></span></a>
+    </div>
+    <div className={styles.navList}>
+      <ul className={styles.ul}>
+        {itemsMenu.map(item =>(
+          <li key={item.name} className={styles.li}>
+            <Link href={item.link}>
+              <a className={styles.a}>{item.name}</a>
+            </Link>
+          </li>
+        ))}
+    </ul>
+    </div>
   </nav> 
 )
 
@@ -43,8 +48,13 @@ export default function Layout({
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <header className={styles.header}>
-        <Menu />
+      <header className={styles.navigation}>
+        <div className={styles.NavigationContainer}>
+          <div className={styles.brand}>
+            <a href="#">SAT</a>
+          </div>
+          <Menu />
+        </div>
       </header>
       <main>{children}</main>
     </div>
