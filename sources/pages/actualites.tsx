@@ -1,7 +1,8 @@
 import Layout from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-
+import presentationStyle from '../styles/presentation.module.scss'
+import moment from 'moment'
 import { getSortedPostsData } from '../utils/posts';
+moment.locale('fr')
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -15,23 +16,33 @@ export async function getStaticProps() {
 
 interface AllPostsData {
   id: string;
-  date: number;
-  title: string
+  date: string;
+  title: string;
+  content: string
 }
 
-export default function News({allPostsData }) {
+export default function News({allPostsData}) {
   return (
     <Layout>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
+      <section>
+        <h1 className={presentationStyle.title}>
+          Les dernières actualités
+        </h1>
+        <ul className={presentationStyle.list}>
+          {allPostsData.map(({ id, date, title, content }) => (
+            <li className={presentationStyle.list__item} key={id}>
+              <div className={presentationStyle.list__item__date}>
+                {date}
+              </div>
+              <div className={presentationStyle.list__item__title}>
+                {title}
+              </div>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: content
+                }}
+                className={presentationStyle.list__item__body}>
+              </div>
             </li>
           ))}
         </ul>

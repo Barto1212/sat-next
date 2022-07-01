@@ -1,8 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-
+import moment from 'moment'
+import { marked } from 'marked';
 const postsDirectory = path.join(process.cwd(), 'posts');
+moment.locale('fr')
+
 
 export function getSortedPostsData() {
   // Get file names under /posts
@@ -17,11 +20,14 @@ export function getSortedPostsData() {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
+    const date = moment(matterResult.data.date).format('LL')
+    const title = matterResult.data.title
 
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data,
+      date, title,
+      content: marked.parse(matterResult.content)
     };
   });
   // Sort posts by date

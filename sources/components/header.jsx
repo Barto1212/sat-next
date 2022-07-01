@@ -1,5 +1,6 @@
 import styles from './header.module.scss'
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
@@ -7,6 +8,7 @@ import { useState, useEffect } from 'react';
 
 const itemsMenu = [
   {name: "Actualités", link: "/actualites"},
+  {name: "Présentation", link: "/presentation"},
   {name: "Fiscalité", link: "/fiscalite"},
   {name: "Nos services", link: "/"},
   {name: "Rucher école", link: "/"},
@@ -46,7 +48,12 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__content}>
-        <h2 className={styles.header__content__logo}>navbar</h2>
+        <Image
+          className={styles.header__content__logo}
+          src="/img/bee.svg"
+          width={150}
+          height={150}
+        />
         <nav
         className={`${styles.header__content__nav} ${
           openMenu && size.width < 1050 ? styles.isMenu : ""

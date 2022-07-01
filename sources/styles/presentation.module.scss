@@ -1,0 +1,10 @@
+.title {
+  margin: 2rem;
+}
+.list {
+  display: flex;
+  list-style: none;
+  &__item {
+    width: 33.33%;
+  }
+}
