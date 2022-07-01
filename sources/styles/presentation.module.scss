@@ -3,8 +3,10 @@
 }
 .list {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   &__item {
+    margin: 3rem;
     width: 33.33%;
   }
 }
