@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from './layout.module.scss'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export const siteTitle = "Syndicat de l'apiculture tourangelle"
 
@@ -12,25 +13,52 @@ const itemsMenu = [
   {name: "Mielerie", link: "/"},
   {name: "Ruche connectée", link: "/"},
 ]
+const NavToggle = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const changeState = () => {
+    setIsOpen(i => !i)
+  }
 
-const Menu = () => (
-  <nav role="navigation" className={styles.nav} >
-    <div className="navMobile">
-      <a id="nav-toggle" href="#"><span></span></a>
-    </div>
-    <div className={styles.navList}>
-      <ul className={styles.ul}>
-        {itemsMenu.map(item =>(
-          <li key={item.name} className={styles.li}>
-            <Link href={item.link}>
-              <a className={styles.a}>{item.name}</a>
-            </Link>
-          </li>
-        ))}
-    </ul>
-    </div>
-  </nav> 
-)
+  if (isOpen) {
+    return (
+      <a className={styles.active} onClick={changeState} href="#">
+        <span className={styles.span}></span>
+      </a>
+    )
+  }
+  return (
+    <a className={styles.navToggle} onClick={changeState} href="#">
+      <span className={styles.span}></span>
+    </a>
+  )
+}
+
+const Menu = () => {
+  return (
+    <header className={styles.navigation}>
+      <div className={styles.NavigationContainer}></div>
+      <div className={styles.brand}>
+        <a className={styles.a} href="#">SAT</a>
+      </div>
+      <nav role="navigation" className={styles.nav} >
+        <div className={styles.navMobile}>
+          <NavToggle />
+        </div>
+        <div className={styles.navList}>
+          <ul className={styles.ul}>
+            {itemsMenu.map(item =>(
+              <li key={item.name} className={styles.li}>
+                <Link href={item.link}>
+                  <a className={styles.a}>{item.name}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </header>
+  )
+}
 
 export default function Layout({
   children,
@@ -44,18 +72,11 @@ export default function Layout({
         <title>{siteTitle}</title>
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Promouvoir l'apiculture en Touraine"
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <header className={styles.navigation}>
-        <div className={styles.NavigationContainer}>
-          <div className={styles.brand}>
-            <a href="#">SAT</a>
-          </div>
-          <Menu />
-        </div>
-      </header>
+      <Menu />
       <main>{children}</main>
     </div>
   )
