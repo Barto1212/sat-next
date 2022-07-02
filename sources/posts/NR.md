@@ -1,5 +1,5 @@
 ---
-title: "sur la NR, mise à l'honneur des formations du SAT37"
+title: "Sur la NR, mise à l'honneur des formations du SAT37"
 date: '2022-02-04'
 ---
 

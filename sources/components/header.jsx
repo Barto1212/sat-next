@@ -7,7 +7,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from 'react';
 
 const itemsMenu = [
-  {name: "Actualités", link: "/actualites"},
+  {name: "Actualités", link: "/"},
   {name: "Présentation", link: "/presentation"},
   {name: "Fiscalité", link: "/fiscalite"},
   {name: "Nos services", link: "/"},

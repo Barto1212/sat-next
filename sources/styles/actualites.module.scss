@@ -1,0 +1,32 @@
+@import './variables.scss';
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2rem;
+  font-size: 2rem;
+}
+.list {
+  padding: 0;
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  &__item {
+    padding: 2rem;
+    width: 33.33%;
+    font-weight: bold;
+    color: $textLight;
+    &__title {
+      font-size: 1.5rem;
+      color: $dark;
+      margin-bottom: 1rem;
+    }
+    &__body {
+      font-weight: normal;
+    }
+    &__date {
+      text-transform: uppercase;
+    }
+  }
+}
