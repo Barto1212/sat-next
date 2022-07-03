@@ -18,7 +18,6 @@ const itemsMenu = [
 
 
 const Header = () => {
-  // console.log(window.innerWidth)
   const [openMenu, setOpenMenu] = useState(false)
   const [size, setSize] = useState({
     width: undefined,
@@ -30,6 +29,7 @@ const Header = () => {
         height: window.innerHeight
       })
   }, []);
+  
   useEffect(() => {
     const handleResize = () => {
       setSize({
