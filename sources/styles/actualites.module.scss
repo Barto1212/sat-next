@@ -1,21 +1,4 @@
 @import './variables.scss';
-$sizeXl: 1200px;
-$sizeLg: 1024px;
-$sizeMd: 768px;
-$sizeSm: 480px;
-$sizeSm: 320px;
-
-@mixin sizeXs {
-  @media (max-width: 320px) { @content; }
-}@mixin sizeSm {
-  @media (max-width: 480px) { @content; }
-}@mixin sizeMd {
-  @media (max-width: 768px) { @content; }
-}@mixin sizeLg {
-  @media (max-width: 1024px) { @content; }
-}@mixin sizeXl {
-  @media (max-width: 1200px) { @content; }
-}
 
 .title {
   text-align: center;
@@ -29,23 +12,11 @@ $sizeSm: 320px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  @include sizeSm {
-    margin: 0;
-  }
   &__item {
     padding: 2rem 2rem 4rem 2rem;
     font-weight: bold;
     color: $textLight;
     width: 33.33%;
-    @include sizeXl {
-      width: 50%;
-    }
-    @include sizeLg {
-      width: 100%;
-    }
-    @include sizeMd {
-      padding: 2rem 0 4rem 0;
-    }
     &__title {
       font-size: 1.5rem;
       color: $dark;
@@ -57,5 +28,26 @@ $sizeSm: 320px;
     &__date {
       text-transform: uppercase;
     }
+  }
+}
+
+@include sizeXl {
+  .list__item {
+    width: 50%;
+  }
+}
+@include sizeLg {
+  .list__item {
+    width: 100%;
+  }
+}
+@include sizeMd {
+  .list__item {
+    padding: 2rem 0 4rem 0;
+  }
+}
+@include sizeSm {
+  .list {
+    margin: 0;
   }
 }

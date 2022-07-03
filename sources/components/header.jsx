@@ -24,7 +24,12 @@ const Header = () => {
     width: undefined,
     height: undefined
   })
-
+  useEffect(() => {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+  }, []);
   useEffect(() => {
     const handleResize = () => {
       setSize({
