@@ -1,6 +1,7 @@
 import styles from './header.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router'
 
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
@@ -10,12 +11,26 @@ const itemsMenu = [
   {name: "Actualités", link: "/"},
   {name: "Présentation", link: "/presentation"},
   {name: "Fiscalité", link: "/fiscalite"},
-  {name: "Nos services", link: "/"},
+  {name: "Adhésion", link: "/adhesion"},
   {name: "Rucher école", link: "/"},
   {name: "Mielerie", link: "/"},
   {name: "Ruche connectée", link: "/"},
 ]
 
+
+const Item = ({item, menuToggleHandler}) => {
+  const router = useRouter()
+  const activeClass = `${styles.link} ${router.asPath === item.link ? styles[`link--open`] : {}}`
+  return (
+    <div className={activeClass}>
+      <li>
+        <Link href={item.link}>
+          <a onClick={menuToggleHandler}>{item.name}</a>
+        </Link>
+      </li>
+    </div>
+  )
+}
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -58,6 +73,7 @@ const Header = () => {
           src="/img/bee.svg"
           width={150}
           height={150}
+          alt="abeille"
         />
         <nav
         className={`${styles.header__content__nav} ${
@@ -65,13 +81,7 @@ const Header = () => {
         }`}
         >
           <ul>
-            {itemsMenu.map(item => (
-              <li key={item.name}>
-                <Link href={item.link}>
-                  <a onClick={menuToggleHandler}>{item.name}</a>
-                </Link>
-              </li>
-            ))}
+            {itemsMenu.map(item => (<Item key={item.key} item={item} menuToggleHandler={menuToggleHandler} />))}
           </ul>
           <button>Connexion admin</button>
         </nav>
