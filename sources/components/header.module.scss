@@ -115,6 +115,11 @@
                         opacity: 1;
                     }
                 }
+
+                @include sizeLg {
+                    content: '';
+                    display: none;
+                }
             }
                 
             button {
