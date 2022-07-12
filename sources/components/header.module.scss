@@ -95,18 +95,16 @@
                         }
                     }
                 }
-            .link {
-                &--open::after {
-                    content: '';
-                    display: block;
-                    top: 0.8rem;
-                    left: 10%;
-                    width: 80%;
-                    height: 0;
-                    position: relative;
-                    animation: slideLeft 0.3s;
-                    border-bottom: solid $primary;
-                }
+            .activePage::after {
+                content: '';
+                display: block;
+                top: 0.8rem;
+                left: 10%;
+                width: 80%;
+                height: 0;
+                position: relative;
+                animation: slideLeft 0.3s;
+                border-bottom: solid $primary;
                 @keyframes slideLeft {
                     from {
                         transform: scale(0);

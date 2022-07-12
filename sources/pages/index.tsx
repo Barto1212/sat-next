@@ -25,9 +25,6 @@ export default function News({allPostsData}) {
   return (
     <Layout>
       <section>
-        <h1 className={actuStyle.title}>
-          Les dernières actualités
-        </h1>
         <ul className={actuStyle.list}>
           {allPostsData.map(({ id, date, title, content }) => (
             <li className={actuStyle.list__item} key={id}>

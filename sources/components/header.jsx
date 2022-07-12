@@ -7,22 +7,21 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from 'react';
 
-const itemsMenu = [
+const itemsList = [
   {name: "Actualités", link: "/"},
   {name: "Présentation", link: "/presentation"},
   {name: "Fiscalité", link: "/fiscalite"},
   {name: "Adhésion", link: "/adhesion"},
-  {name: "Rucher école", link: "/"},
-  {name: "Mielerie", link: "/"},
-  {name: "Ruche connectée", link: "/"},
+  {name: "Rucher école", link: "/rucherecole"},
+  {name: "Mielerie", link: "/mielerie"},
+  {name: "Ruche connectée", link: "/rucheconnectee"},
 ]
 
 
 const Item = ({item, menuToggleHandler}) => {
   const router = useRouter()
-  const activeClass = `${styles.link} ${router.asPath === item.link ? styles[`link--open`] : {}}`
   return (
-    <div className={activeClass}>
+    <div className={router.asPath === item.link && styles.activePage}>
       <li>
         <Link href={item.link}>
           <a onClick={menuToggleHandler}>{item.name}</a>
@@ -81,7 +80,7 @@ const Header = () => {
         }`}
         >
           <ul>
-            {itemsMenu.map(item => (<Item key={item.key} item={item} menuToggleHandler={menuToggleHandler} />))}
+            {itemsList.map(item => (<Item key={item.key} item={item} menuToggleHandler={menuToggleHandler} />))}
           </ul>
           <button>Connexion admin</button>
         </nav>
