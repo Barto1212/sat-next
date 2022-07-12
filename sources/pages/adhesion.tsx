@@ -4,7 +4,6 @@ export default function Adhesion () {
 		<Layout>
 			<h1>La nouvelle réglementation de l’apiculture en France à partir de 2016</h1>
 				<p>
-					La déclaration de ses ruches est obligatoire dès la première ruche, pour des raisons sanitaires, fiscales, sociales et d’assurance 
 					(responsabilité civile). Les déclarations devront s’effectuer entre le 1er septembre et le 31 décembre 2016 soit via <strong>Téléruchers</strong> 
 					actualisé, soit par le document des impôts Cerfa 13995*03 (il s’agit de la période obligatoire de déclaration). Les ruchettes et nucléis 
 					seront à mentionner dans la déclaration 2016.
