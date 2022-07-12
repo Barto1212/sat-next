@@ -21,7 +21,7 @@ const itemsList = [
 const Item = ({item, menuToggleHandler}) => {
   const router = useRouter()
   return (
-    <div className={router.asPath === item.link && styles.activePage}>
+    <div className={router.asPath === item.link ? styles.activePage : ""}>
       <li>
         <Link href={item.link}>
           <a onClick={menuToggleHandler}>{item.name}</a>
@@ -80,7 +80,7 @@ const Header = () => {
         }`}
         >
           <ul>
-            {itemsList.map(item => (<Item key={item.key} item={item} menuToggleHandler={menuToggleHandler} />))}
+            {itemsList.map(item => (<Item key={item.name} item={item} menuToggleHandler={menuToggleHandler} />))}
           </ul>
           <button>Connexion admin</button>
         </nav>
