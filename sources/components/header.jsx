@@ -14,7 +14,7 @@ const itemsList = [
   {name: "Adhésion", link: "/adhesion"},
   {name: "Rucher école", link: "/rucherecole"},
   {name: "Mielerie", link: "/mielerie"},
-  {name: "Ruche connectée", link: "/rucheconnectee"},
+  {name: "Cotisation", link: "/cotisation"},
 ]
 
 

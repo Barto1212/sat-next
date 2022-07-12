@@ -3,14 +3,14 @@ import Image from "next/image"
 export default function Presentation () {
 	return (
 		<Layout>
-			<p style={{float: "left", padding: "1rem 3rem 1rem 1rem"}}>
+			<div style={{float: "left", padding: "1rem 3rem 1rem 1rem"}}>
 				<Image
 					src='/img/recolte.jpg'
 					alt="Récolte du miel"
 					width={360}
 					height={239}
 				/>
-			</p>
+			</div>
 			<p>
 				Le Syndicat de l'Apiculture Tourangelle a pour but de promouvoir la production du miel et des produits de la ruche, d'améliorer les 
 				connaissances techniques des apiculteurs avec son rucher école, de défendre les intérêts des apiculteurs et de sauvegarder l’environnement. 
