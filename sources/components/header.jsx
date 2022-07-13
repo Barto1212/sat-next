@@ -10,11 +10,10 @@ import { useState, useEffect } from 'react';
 const itemsList = [
   {name: "Actualités", link: "/"},
   {name: "Présentation", link: "/presentation"},
-  {name: "Fiscalité", link: "/fiscalite"},
   {name: "Adhésion", link: "/adhesion"},
-  {name: "Rucher école", link: "/rucherecole"},
-  {name: "Mielerie", link: "/mielerie"},
-  {name: "Cotisation", link: "/cotisation"},
+  // {name: "Fiscalité", link: "/fiscalite"},
+  // {name: "Rucher école", link: "/rucherecole"},
+  // {name: "Mielerie", link: "/mielerie"},
 ]
 
 
