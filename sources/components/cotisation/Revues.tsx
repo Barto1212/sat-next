@@ -31,7 +31,7 @@ const Revues = () => {
 					<tr key={revue.link}>
 						<td>
 							<Image
-								src={`/img/${revue.link}`}
+								src={`/img/revues/${revue.link}`}
 								alt={revue.name}
 								width={revue.size.with}
 								height={revue.size.height}

@@ -1,5 +1,5 @@
 import Layout from '../components/layout'
-import actuStyle from '../styles/actualites.module.scss'
+import articles from '../styles/articles.module.scss'
 import moment from 'moment'
 import { getSortedPostsData } from '../utils/posts';
 moment.locale('fr')
@@ -25,20 +25,20 @@ export default function News({allPostsData}) {
   return (
     <Layout>
       <section>
-        <ul className={actuStyle.list}>
+        <ul className={articles.list}>
           {allPostsData.map(({ id, date, title, content }) => (
-            <li className={actuStyle.list__item} key={id}>
-              <div className={actuStyle.list__item__title}>
+            <li className={articles.list__item} key={id}>
+              <div className={articles.list__item__title}>
                 {title}
               </div>
-              <div className={actuStyle.list__item__date}>
+              <div className={articles.list__item__date}>
                 {date}
               </div>
               <div
                 dangerouslySetInnerHTML={{
                   __html: content
                 }}
-                className={actuStyle.list__item__body}>
+                className={articles.list__item__body}>
               </div>
             </li>
           ))}
