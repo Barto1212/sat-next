@@ -10,14 +10,16 @@ export default function Adhesion () {
 		<Layout>
 			<h2>Votre cotisation 2022</h2>
 			<table>
-				<tr>
-					<td>Cotisation avec un abonnement à une revue:</td>
-					<td>51€ ou 53€</td>
-				</tr>
-				<tr>
-					<td>Cotisation avec un abonnement à une revue:</td>
-					<td>51€ ou 53€</td>
-				</tr>
+				<tbody>
+					<tr>
+						<td>Cotisation avec un abonnement à une revue:</td>
+						<td>51€ ou 53€</td>
+					</tr>
+					<tr>
+						<td>Cotisation avec un abonnement à une revue:</td>
+						<td>51€ ou 53€</td>
+					</tr>
+				</tbody>
 			</table>
 			<h2>Vos revues syndicales</h2>
 			<Revues />

@@ -26,6 +26,7 @@ const Revues = () => {
 	]
 	return (
 		<table>
+			<tbody>
 				{revues.map(revue => (
 					<tr key={revue.link}>
 						<td>
@@ -43,6 +44,7 @@ const Revues = () => {
 						</td>
 					</tr>
 				))}
+			</tbody>
 			</table>
 	)
 }
