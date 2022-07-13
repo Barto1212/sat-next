@@ -3,6 +3,7 @@ import Revues from '../components/cotisation/Revues'
 import EcoEmballages from "../components/cotisation/EcoEmballages"
 import Assurance from '../components/cotisation/Assurance'
 import RucherEcole from '../components/cotisation/RucherEcole'
+import Image from "next/image"
 
 export default function Adhesion () {
 	return (
@@ -20,6 +21,12 @@ export default function Adhesion () {
 			</table>
 			<h2>Vos revues syndicales</h2>
 			<Revues />
+			<Image
+				src="/img/abeilles-entree-1920-1080.jpg"
+				width={800}
+				height={450}
+				alt="Abeilles entrée ruche"
+			/>
 			<EcoEmballages />
 			<RucherEcole />
 			<Assurance />
