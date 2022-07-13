@@ -1,7 +1,6 @@
 const Assurance = () => (
-	<div>
-		<h2>Assurance</h2>
-		<div>
+	<>
+		<p>
 			Deux options vous sont proposées: 
 			<ul>
 				<li>
@@ -16,19 +15,19 @@ const Assurance = () => (
 					Cotisation annuelle 1.861€ par ruche.
 				</li>
 			</ul>
-		</div>
-		<div>
+		</p>
+		<p>
 			Attention aux retards dans le règlement de vos cotisations. L'assurance est valable du 1er janvier au 31 décembre de l'année en cours.
-		</div>
-		<div>
+		</p>
+		<p>
 			Les dommages consécutifs à des vols ou actes de vandalisme doivent être déclarés dans un délai de 24h à compter du moment où l'assuré a pris 
 			connaissance des dommages. Par ailleurs il est nécessaire de déposer une plainte auprès de la police.
-		</div>
-		<div>
+		</p>
+		<p>
 			Le syndicat est tituldaire d'une police d'assurance garantissant les risques inhérents à l'ensemble de ses activités et à celle de ses 
 			adhérents dans ce cadre.
-		</div>
-	</div>
+		</p>
+	</>
 )
 
 export default Assurance

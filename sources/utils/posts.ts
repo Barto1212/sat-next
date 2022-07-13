@@ -9,8 +9,8 @@ moment.locale('fr')
 
 export function getSortedPostsData() {
   // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+  const fileNames: string[] = fs.readdirSync(postsDirectory);
+  const articles = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '');
 
@@ -31,7 +31,7 @@ export function getSortedPostsData() {
     };
   });
   // Sort posts by date
-  return allPostsData.sort(({ date: a }, { date: b }) => {
+  return articles.sort(({ date: a }, { date: b }) => {
     if (a < b) {
       return 1;
     } else if (a > b) {

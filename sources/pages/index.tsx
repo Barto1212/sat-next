@@ -1,44 +1,48 @@
 import Layout from '../components/layout'
-import articles from '../styles/articles.module.scss'
+import grid from '../styles/articles.module.scss'
 import moment from 'moment'
 import { getSortedPostsData } from '../utils/posts';
 moment.locale('fr')
 
+interface Article {
+  id: string;
+  date: string;
+  title: string;
+  content?: string
+}
+interface Articles {
+  articles: Article[]
+}
+
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const articles = getSortedPostsData();
   return {
     props: {
-      allPostsData,
+      articles,
     },
   };
 }
 
 
-interface AllPostsData {
-  id: string;
-  date: string;
-  title: string;
-  content: string
-}
 
-export default function News({allPostsData}) {
+const News: React.FC<Articles> = ({articles}) => {
   return (
     <Layout>
       <section>
-        <ul className={articles.list}>
-          {allPostsData.map(({ id, date, title, content }) => (
-            <li className={articles.list__item} key={id}>
-              <div className={articles.list__item__title}>
+        <ul className={grid.list}>
+          {articles.map(({ id, date, title, content }) => (
+            <li className={grid.list__item} key={id}>
+              <h2 className={grid.list__item__title}>
                 {title}
-              </div>
-              <div className={articles.list__item__date}>
+              </h2>
+              <div className={grid.list__item__date}>
                 {date}
               </div>
               <div
                 dangerouslySetInnerHTML={{
                   __html: content
                 }}
-                className={articles.list__item__body}>
+                className={grid.list__item__body}>
               </div>
             </li>
           ))}
@@ -47,3 +51,5 @@ export default function News({allPostsData}) {
     </Layout>
   )
 }
+
+export default News
