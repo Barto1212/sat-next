@@ -8,14 +8,13 @@ import grid from '../styles/articles.module.scss'
 
 interface articleProp {
 	children: JSX.Element
-	title?: string | JSX.Element
+	title: string | JSX.Element
 }
 
 const ArticleLi: React.FC<articleProp> = ({children, title}) => {
-	const newTitle: string = title ? title : children.type.name.replace(/([A-Z])/g, " $1")
 return (
 	<li className={grid.list__item}>
-		<h2 className={grid.list__item__title}>{newTitle}</h2>
+		<h2 className={grid.list__item__title}>{title}</h2>
 		<div className={grid.list__item__body}>{children}</div>
 	</li>
 )
@@ -25,20 +24,8 @@ export default function Adhesion () {
 	return (
 		<Layout>
 			<h1 className={grid.title}>Votre cotisation 2022</h1>
-				<table className={grid.article}>
-					<tbody>
-						<tr>
-							<td>Cotisation avec un abonnement à une revue:</td>
-							<td>51€ ou 53€</td>
-						</tr>
-						<tr>
-							<td>Cotisation avec un abonnement à une revue:</td>
-							<td>51€ ou 53€</td>
-						</tr>
-					</tbody>
-				</table>
 			<ul className={grid.list}>
-				<ArticleLi>
+				<ArticleLi title="Revues" >
 					<Revues />
 				</ArticleLi>
 				<ArticleLi title={
@@ -51,10 +38,10 @@ export default function Adhesion () {
 				} >
 					<EcoEmballages />
 				</ArticleLi>
-				<ArticleLi>
+				<ArticleLi title="Rucher école" >
 					<RucherEcole />
 				</ArticleLi>
-				<ArticleLi>
+				<ArticleLi title="Assurance" >
 					<Assurance />
 				</ArticleLi>
 			</ul>

@@ -1,7 +1,7 @@
-#!/bin/bash
+!/bin/bash
 user="barto"
 # ipAdress="octopieu.fr"
-ipAdress="192.168.0.30"
+ipAdress="82.65.249.94"
 # ipAdress="192.168.0.30"
 localadressScript="/var/www/loic-barthomeuf"
 localadressSources=$localadressScript"/sources"
