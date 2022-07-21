@@ -30,7 +30,7 @@ const Item = ({item, menuToggleHandler}) => {
   )
 }
 
-const Header = () => {
+const Header = ({setIsOpen}) => {
   const [openMenu, setOpenMenu] = useState(false)
   const [size, setSize] = useState({
     width: undefined,
@@ -81,7 +81,7 @@ const Header = () => {
           <ul>
             {itemsList.map(item => (<Item key={item.name} item={item} menuToggleHandler={menuToggleHandler} />))}
           </ul>
-          <button>Connexion admin</button>
+          <button onClick={setIsOpen}>Connexion admin</button>
         </nav>
         <div className={styles.header__content__toggle}>
           {openMenu ? <AiOutlineClose onClick={menuToggleHandler} /> : <BiMenuAltRight onClick={menuToggleHandler} />}

@@ -1,5 +1,4 @@
 import Modal from 'react-modal';
-import { useState } from 'react';
 
 const customStyles = {
   content: {
@@ -15,9 +14,8 @@ const customStyles = {
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#__next');
 
-function MyModal() {
+function MyModal({modalIsOpen, setIsOpen}) {
   let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -33,8 +31,6 @@ function MyModal() {
   }
 
   return (
-    <div>
-      <button onClick={openModal}>Open Modal</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -53,7 +49,6 @@ function MyModal() {
           <button>the modal</button>
         </form>
       </Modal>
-    </div>
   );
 }
 

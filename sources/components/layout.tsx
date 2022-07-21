@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Header from './header.jsx'
 import styles from './layout.module.scss'
 import MyModal from './MyModal'
+import { useState } from 'react'
 
 export const siteTitle = "Syndicat de l'apiculture tourangelle"
 
@@ -12,6 +13,8 @@ export default function Layout({
 }: {
   children: React.ReactNode
 }) {
+  
+  const [modalIsOpen, setIsOpen] = useState(false);
   return (
     <>
       <Head>
@@ -23,8 +26,8 @@ export default function Layout({
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <Header />
-      <MyModal />
+      <Header setIsOpen={setIsOpen} />
+      <MyModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
       <main className={styles.container}>{children}</main>
     </>
   )
